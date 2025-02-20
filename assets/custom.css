@@ -1,0 +1,74 @@
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF1801;
+    border-radius: 10px;
+    border: 2px solid #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FFC300;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #FF1801 #1E1E1E;
+}
+
+/* Custom styles */
+.bg-dark {
+    background-color: #1E1E1E !important;
+}
+
+.border-danger {
+    border-color: #FF1801 !important;
+}
+
+.text-warning {
+    color: #FFC300 !important;
+}
+
+.text-danger {
+    color: #FF1801 !important;
+}
+
+.text-muted {
+    color: #B0B0B0 !important;
+}
+
+/* Card hover effects */
+.card {
+    transition: border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: #FFC300 !important;
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal-content {
+    background-color: #1E1E1E;
+    border: 2px solid #FF1801;
+}
+
+.modal-header {
+    border-bottom-color: rgba(176, 176, 176, 0.2);
+}
+
+.modal-footer {
+    border-top-color: rgba(176, 176, 176, 0.2);
+}
+
+.fw-medium {
+    color: whitesmoke;
+}

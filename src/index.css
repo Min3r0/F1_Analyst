@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#121212];
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#1E1E1E];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#FF1801] rounded-full;
+    border: 2px solid #1E1E1E;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#FFC300];
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #FF1801 #1E1E1E;
+  }
+}
+
+@layer components {
+  .race-card {
+    @apply relative overflow-hidden;
+  }
+
+  .race-card::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-[#FF1801]/10 to-transparent opacity-0 transition-opacity;
+  }
+
+  .race-card:hover::after {
+    @apply opacity-100;
+  }
+}
