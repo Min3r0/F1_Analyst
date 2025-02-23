@@ -21,7 +21,7 @@ def create_season_dropdown():
                 ], style={"maxHeight": "300px", "overflowY": "auto"})
             ],
             label="SAISON",
-            color="warning",
+            color= "muted",
             id="season-dropdown"
         )
     ])

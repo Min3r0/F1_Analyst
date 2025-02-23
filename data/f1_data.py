@@ -144,3 +144,58 @@ class F1Data:
             {'position': 19, 'name': 'Kevin Magnussen', 'points': 0, 'team': 'Haas F1 Team'},
             {'position': 20, 'name': 'Logan Sargeant', 'points': 0, 'team': 'Williams'}
         ]
+
+    @staticmethod
+    def get_drivers():
+            return [
+                {
+                    'name': 'Lewis Hamilton',
+                    'active_years': '2007-',
+                    'teams': {
+                        'McLaren': '2007-2012',
+                        'Mercedes': '2013-'
+                    },
+                    'race_starts': 332,
+                    'wins': 103,
+                    'world_championships': 7
+                },
+                {
+                    'name': 'Max Verstappen',
+                    'active_years': '2015-',
+                    'teams': {
+                        'Toro Rosso': '2015-2016',
+                        'Red Bull Racing': '2016-'
+                    },
+                    'race_starts': 188,
+                    'wins': 54,
+                    'world_championships': 3
+                },
+                {
+                    'name': 'Sebastian Vettel',
+                    'active_years': '2007-2022',
+                    'teams': {
+                        'BMW Sauber': '2007',
+                        'Toro Rosso': '2007-2008',
+                        'Red Bull Racing': '2009-2014',
+                        'Ferrari': '2015-2020',
+                        'Aston Martin': '2021-2022'
+                    },
+                    'race_starts': 299,
+                    'wins': 53,
+                    'world_championships': 4
+                },
+                {
+                    'name': 'Fernando Alonso',
+                    'active_years': '2001-',
+                    'teams': {
+                        'Minardi': '2001',
+                        'Renault': '2003-2006, 2008-2009',
+                        'McLaren': '2007, 2015-2018',
+                        'Ferrari': '2010-2014',
+                        'Aston Martin': '2023-'
+                    },
+                    'race_starts': 377,
+                    'wins': 32,
+                    'world_championships': 2
+                }
+            ]
