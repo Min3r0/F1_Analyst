@@ -45,7 +45,7 @@ def create_pilot_card(driver):
 
 def create_pilot_content():
     # Get drivers data
-    drivers = F1Data.getdriver()
+    drivers = F1Data.get_data_drivers()
 
     return html.Div([
         # Drivers Grid

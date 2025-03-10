@@ -206,48 +206,50 @@ import pandas as pd
 
 class F1Data:
     @staticmethod
-    def getdriver():
-        # Load necessary CSV files
+    def load_data():
+        """Charge les fichiers CSV nécessaires et les retourne sous forme de DataFrames."""
         drivers_df = pd.read_csv("data/drivers.csv")
         driver_standings_df = pd.read_csv("data/driver_standings.csv")
         races_df = pd.read_csv("data/races.csv")
+        results_df = pd.read_csv("data/results.csv")
+        return drivers_df, driver_standings_df, races_df, results_df
 
-        # Create initial dictionary with drivers
+    @staticmethod
+    def compute_wins(results_df, driver_id):
+        """Calcule le nombre de victoires pour un pilote donné."""
+        return results_df[(results_df['driverId'] == driver_id) & (results_df['positionOrder'] == 1)].shape[0]
+
+    @staticmethod
+    def compute_race_stats(driver_standings_df, races_df, driver_id):
+        """Calcule le nombre de courses disputées et la période d'activité d'un pilote."""
+        race_year_map = races_df.set_index('raceId')['year'].to_dict()
+        driver_races = driver_standings_df[driver_standings_df['driverId'] == driver_id]
+
+        if driver_races.empty:
+            return 0, None
+
+        race_ids = driver_races['raceId'].unique()
+        years = [race_year_map[race_id] for race_id in race_ids if race_id in race_year_map]
+
+        if years:
+            return race_ids.size, f"{min(years)}-{max(years)}"
+        else:
+            return race_ids.size, None
+
+    @staticmethod
+    def get_data_drivers():
+        """Retourne la liste des pilotes avec leurs statistiques calculées."""
+        drivers_df, driver_standings_df, races_df, results_df = F1Data.load_data()
         drivers = drivers_df[['driverId', 'forename', 'surname']].to_dict(orient='records')
 
-        # Create a mapping of raceId to year from races.csv
-        race_year_map = races_df.set_index('raceId')['year'].to_dict()
-
         for driver in drivers:
+            driver_id = driver['driverId']
+            driver['wins'] = F1Data.compute_wins(results_df, driver_id)
+            driver['race_starts'], driver['active_years'] = F1Data.compute_race_stats(driver_standings_df, races_df,
+                                                                                      driver_id)
 
-            driver_races = driver_standings_df[driver_standings_df['driverId'] == driver['driverId']]
-
-            if not driver_races.empty:
-                race_ids = driver_races['raceId'].unique()
-                driver['race_starts'] = race_ids.size
-                years = [race_year_map[race_id] for race_id in race_ids if race_id in race_year_map]
-
-                if years:
-                    min_year = min(years)
-                    max_year = max(years)
-
-                    driver['active_years'] = f"{min_year}-{max_year}"
-                else:
-                    driver['active_years'] = None
-
-                driver['wins'] = (driver_races['position'] == 1).sum()
-
-
-            else:
-                driver['active_years'] = None
-                driver['race_starts'] = 0
-                driver['wins'] = 0
-
-            driver['world_championships'] = None
-
-            driver['teams'] = None
-
-            # Remove driverId as it's no longer needed in the final output
+            driver['world_championships'] = None  # Placeholder
+            driver['teams'] = None  # Placeholder
             driver.pop('driverId', None)
 
         return drivers
