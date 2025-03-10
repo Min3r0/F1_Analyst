@@ -30,13 +30,13 @@ def create_pilot_card(driver):
                 html.Hr(className="border-danger opacity-25"),
                 html.Div([
                     html.H6("Teams:", className="text-muted mb-2"),
-                    """html.Div([
+                    html.Div([
                         html.Div([
                             html.Span(team + ": ", className="text-muted"),
                             html.Span(years, className="text-warning")
                         ], className="mb-1")
                         for team, years in driver['teams'].items()
-                    ])"""
+                    ])
                 ])
             ], className="p-4")
         ], className="card h-100 bg-dark border border-danger")

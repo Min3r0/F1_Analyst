@@ -212,7 +212,8 @@ class F1Data:
         driver_standings_df = pd.read_csv("data/driver_standings.csv")
         races_df = pd.read_csv("data/races.csv")
         results_df = pd.read_csv("data/results.csv")
-        return drivers_df, driver_standings_df, races_df, results_df
+        constructors_df = pd.read_csv("data/constructors.csv")
+        return drivers_df, driver_standings_df, races_df, results_df, constructors_df
 
     @staticmethod
     def compute_wins(results_df, driver_id):
@@ -237,9 +238,49 @@ class F1Data:
             return race_ids.size, None
 
     @staticmethod
+    def compute_world_championships(results_df, races_df, driver_id):
+        """Calcule le nombre de titres de champion du monde d'un pilote en fonction des points cumulés par saison."""
+        race_year_map = races_df.set_index('raceId')['year'].to_dict()
+        results_df['year'] = results_df['raceId'].map(race_year_map)
+
+        season_points = results_df.groupby(['year', 'driverId'])['points'].sum().reset_index()
+        champions = season_points.loc[season_points.groupby('year')['points'].idxmax()]
+
+        return (champions['driverId'] == driver_id).sum()
+
+
+    @staticmethod
+    def compute_teams(results_df, races_df, constructors_df, driver_id):
+        """Retourne les équipes avec lesquelles un pilote a couru et les années associées."""
+        race_year_map = races_df.set_index('raceId')['year'].to_dict()
+        results_df['year'] = results_df['raceId'].map(race_year_map)
+
+        driver_results = results_df[results_df['driverId'] == driver_id]
+        driver_teams = driver_results.groupby(['constructorId'])['year'].unique().to_dict()
+
+        constructor_map = constructors_df.set_index('constructorId')['name'].to_dict()
+
+        def format_years(years):
+            """Formate les années en plages continues."""
+            years = sorted(years)
+            ranges = []
+            start = years[0]
+            for i in range(1, len(years)):
+                if years[i] != years[i - 1] + 1:
+                    ranges.append(f"{start}-{years[i - 1]}" if start != years[i - 1] else f"{start}")
+                    start = years[i]
+            ranges.append(f"{start}-{years[-1]}" if start != years[-1] else f"{start}")
+            return " ".join(ranges)
+
+        teams = {constructor_map[team_id]: format_years(years) for team_id, years in driver_teams.items() if
+                 team_id in constructor_map}
+
+        return teams
+
+    @staticmethod
     def get_data_drivers():
         """Retourne la liste des pilotes avec leurs statistiques calculées."""
-        drivers_df, driver_standings_df, races_df, results_df = F1Data.load_data()
+        drivers_df, driver_standings_df, races_df, results_df, constructors_df = F1Data.load_data()
         drivers = drivers_df[['driverId', 'forename', 'surname']].to_dict(orient='records')
 
         for driver in drivers:
@@ -247,13 +288,13 @@ class F1Data:
             driver['wins'] = F1Data.compute_wins(results_df, driver_id)
             driver['race_starts'], driver['active_years'] = F1Data.compute_race_stats(driver_standings_df, races_df,
                                                                                       driver_id)
+            driver['world_championships'] = F1Data.compute_world_championships(results_df, races_df, driver_id)
+            driver['teams'] = F1Data.compute_teams(results_df, races_df, constructors_df, driver_id)
 
-            driver['world_championships'] = None  # Placeholder
-            driver['teams'] = None  # Placeholder
             driver.pop('driverId', None)
 
         return drivers
-    
+
     @staticmethod
     def get_races():
         return [
