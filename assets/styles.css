@@ -1,0 +1,85 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+input, select {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.driver-list {
+    height: 90vh;
+    overflow-y: scroll;
+    padding: 10px;
+    border-right: 1px solid #333;
+}
+.driver-card {
+    padding: 8px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+.driver-card:hover {
+    background-color: #333;
+}
+
+.nav-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.constructor-list{
+    height: 90vh;
+    overflow-y: scroll;
+    padding: 10px;
+    border-right: 1px solid #333;
+}
+
+
+.constructor-card {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.constructor-card:hover {
+    background-color: #333;
+}
+
+
+.constructor-entry {
+    padding: 8px;
+    background-color: #1a1a1a;
+    margin: 5px;
+    border-radius: 8px;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.constructor-entry:hover {
+    background-color: #2c2c2c;
+}
+
+.add-driver-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: white;
+    background-color: #444;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    display: block;
+}
