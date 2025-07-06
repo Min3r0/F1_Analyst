@@ -1,0 +1,66 @@
+Année,Réel,Random Forest,Logistic Regression,Gradient Boosting,SVM (linéaire)
+1959,Cooper-Climax,Cooper-Climax,Cooper-Climax,Cooper-Climax,Kurtis Kraft
+1960,Cooper-Climax,Cooper-Climax,Cooper-Climax,Cooper-Climax,Cooper-Climax
+1961,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+1962,BRM,BRM,BRM,BRM,BRM
+1963,Lotus-Climax,Lotus-Climax,BRM,Lotus-Climax,Lotus-Climax
+1964,Ferrari,Lotus-Climax,Ferrari,BRM,Ferrari
+1965,Lotus-Climax,Lotus-Climax,BRM,BRM,BRM
+1966,Brabham-Repco,Ferrari,Brabham-Repco,Brabham-Repco,Ferrari
+1967,Brabham-Repco,Cooper-Climax,Brabham-Repco,Cooper-Climax,Brabham-Repco
+1968,Lotus-Ford,Lotus-Ford,Lotus-Ford,Lotus-Ford,Lotus-Ford
+1969,Matra-Ford,Matra-Ford,Matra-Ford,Matra-Ford,Matra-Ford
+1970,Team Lotus,Ferrari,Ferrari,Ferrari,Team Lotus
+1971,Tyrrell,Tyrrell,Tyrrell,Tyrrell,Tyrrell
+1972,Team Lotus,McLaren,Tyrrell,Tyrrell,Tyrrell
+1973,Team Lotus,Team Lotus,Team Lotus,Tyrrell,Team Lotus
+1974,McLaren,Ferrari,Ferrari,Ferrari,Ferrari
+1975,Ferrari,Brabham,Ferrari,Brabham,Ferrari
+1976,Ferrari,Ferrari,Ferrari,Tyrrell,Ferrari
+1977,Ferrari,Team Lotus,Ferrari,Team Lotus,Ferrari
+1978,Team Lotus,Team Lotus,Team Lotus,Team Lotus,Team Lotus
+1979,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+1980,Williams,Williams,Williams,Williams,Williams
+1981,Williams,Williams,Williams,Williams,Williams
+1982,Ferrari,Renault,Ferrari,Renault,Ferrari
+1983,Ferrari,Ferrari,Ferrari,Brabham,Ferrari
+1984,McLaren,McLaren,McLaren,McLaren,McLaren
+1985,McLaren,Team Lotus,McLaren,McLaren,McLaren
+1986,Williams,Williams,Williams,Williams,Williams
+1987,Williams,Williams,Williams,Williams,Williams
+1988,McLaren,McLaren,McLaren,McLaren,McLaren
+1989,McLaren,McLaren,McLaren,McLaren,McLaren
+1990,McLaren,Ferrari,Ferrari,Ferrari,Ferrari
+1991,McLaren,Williams,Williams,Williams,Williams
+1992,Williams,Williams,Williams,Williams,Williams
+1993,Williams,Williams,Williams,Williams,Williams
+1994,Williams,Williams,Benetton,Benetton,Benetton
+1995,Benetton,Williams,Williams,Williams,Williams
+1996,Williams,Williams,Williams,Williams,Williams
+1997,Williams,Williams,Williams,Williams,Williams
+1998,McLaren,McLaren,McLaren,McLaren,McLaren
+1999,Ferrari,McLaren,McLaren,Ferrari,McLaren
+2000,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+2001,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+2002,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+2003,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+2004,Ferrari,BAR,Ferrari,Renault,Ferrari
+2005,Renault,Renault,Renault,Renault,Renault
+2006,Renault,Ferrari,Ferrari,Ferrari,Ferrari
+2007,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+2008,Ferrari,Ferrari,Ferrari,Ferrari,Ferrari
+2009,Brawn,Brawn,Brawn,Brawn,Brawn
+2010,Red Bull,Red Bull,Mercedes,Red Bull,Mercedes
+2011,Red Bull,Ferrari,Ferrari,Ferrari,Ferrari
+2012,Red Bull,McLaren,Lotus F1,Sauber,Lotus F1
+2013,Red Bull,Red Bull,Ferrari,Red Bull,Red Bull
+2014,Mercedes,Mercedes,Mercedes,Mercedes,Mercedes
+2015,Mercedes,Mercedes,Ferrari,Mercedes,Ferrari
+2016,Mercedes,Mercedes,Ferrari,Mercedes,Red Bull
+2017,Mercedes,Ferrari,Ferrari,Mercedes,Ferrari
+2018,Mercedes,Mercedes,Mercedes,Mercedes,Mercedes
+2019,Mercedes,Mercedes,Mercedes,Renault,Mercedes
+2020,Mercedes,Mercedes,Mercedes,Mercedes,Mercedes
+2021,Mercedes,Red Bull,Mercedes,Red Bull,Mercedes
+2022,Red Bull,Red Bull,Ferrari,Red Bull,Ferrari
+2023,Red Bull,Red Bull,Red Bull,Red Bull,Red Bull
